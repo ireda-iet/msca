@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>متابعة كورس MCSA 2019 — م. عبير حسني (190 فيديو)</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;min-height:100vh;padding:1.5rem 1rem}
+.wrap{max-width:820px;margin:0 auto}
+
+/* Header */
+.hdr{background:#fff;border-radius:14px;padding:1.5rem 1.75rem;margin-bottom:1.25rem;border:1px solid #e5e8ed}
+.hdr-top{display:flex;align-items:center;gap:14px;margin-bottom:1rem}
+.hdr-ic{width:50px;height:50px;border-radius:13px;background:#E1F5EE;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.hdr-t{font-size:19px;font-weight:700;color:#0d0d0d}
+.hdr-s{font-size:13px;color:#6b7280;margin-top:3px}
+
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:1rem}
+.stat{background:#f8f9fb;border-radius:10px;padding:10px 12px;text-align:center}
+.stat-n{font-size:20px;font-weight:700;color:#0d0d0d}
+.stat-l{font-size:11px;color:#9ca3af;margin-top:2px}
+
+/* Progress */
+.prog-row{display:flex;justify-content:space-between;font-size:13px;color:#6b7280;margin-bottom:6px}
+.prog-bg{background:#e9ecf0;border-radius:99px;height:10px;overflow:hidden}
+.prog-fill{background:linear-gradient(90deg,#1D9E75,#0F6E56);height:10px;border-radius:99px;transition:width .4s}
+
+/* Section */
+.sec{background:#fff;border-radius:14px;border:1px solid #e5e8ed;margin-bottom:1rem;overflow:hidden}
+.sec-hdr{display:flex;align-items:center;gap:12px;padding:13px 18px;cursor:pointer;user-select:none;transition:background .15s}
+.sec-hdr:hover{background:#fafbfc}
+.sec-ic{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.sec-info{flex:1}
+.sec-name{font-size:14px;font-weight:700;color:#0d0d0d}
+.sec-meta{font-size:11px;color:#9ca3af;margin-top:2px}
+.sec-pct{font-size:11px;color:#6b7280;flex-shrink:0;min-width:38px;text-align:left}
+.sec-prog{width:70px;height:5px;background:#e9ecf0;border-radius:99px;overflow:hidden;flex-shrink:0}
+.sec-prog-fill{height:5px;border-radius:99px;background:#1D9E75;transition:width .3s}
+.arr{font-size:12px;color:#9ca3af;flex-shrink:0;transition:transform .2s;display:inline-block}
+.collapsed .arr{transform:rotate(-90deg)}
+.sec-body{border-top:1px solid #f0f2f5}
+.collapsed .sec-body{display:none}
+
+/* Videos */
+.vids{padding:10px 18px 14px}
+.vid{display:flex;align-items:flex-start;gap:10px;padding:5px 4px;border-radius:6px;transition:background .1s}
+.vid:hover{background:#f8f9fb}
+.vid input[type=checkbox]{flex-shrink:0;margin-top:2px;width:14px;height:14px;accent-color:#1D9E75;cursor:pointer}
+.vid label{font-size:12.5px;color:#374151;line-height:1.5;cursor:pointer;flex:1}
+.vid-num{font-size:11px;color:#d1d5db;width:22px;flex-shrink:0;text-align:left;padding-top:2px}
+.vid.done label{color:#b0bac7;text-decoration:line-through}
+.est{font-size:10px;color:#d1d5db;font-style:italic}
+
+/* Divider group */
+.grp-lbl{font-size:10px;font-weight:700;color:#d1d5db;text-transform:uppercase;letter-spacing:.06em;padding:8px 0 4px;border-top:1px solid #f0f2f5;margin-top:4px}
+.grp-lbl:first-child{border-top:none;margin-top:0;padding-top:4px}
+
+/* Colors */
+.c-teal .sec-ic{background:#E1F5EE}
+.c-blue .sec-ic{background:#E6F1FB}
+.c-purple .sec-ic{background:#EEEDFE}
+.c-amber .sec-ic{background:#FAEEDA}
+.c-coral .sec-ic{background:#FAECE7}
+.c-green .sec-ic{background:#EAF3DE}
+.c-pink .sec-ic{background:#FBEAF0}
+
+@media(max-width:500px){.stats{grid-template-columns:repeat(2,1fr)}}
+@media print{.sec-body{display:block!important}.arr{display:none}.sec-hdr{cursor:default}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hdr">
+  <div class="hdr-top">
+    <div class="hdr-ic">🖥️</div>
+    <div>
+      <div class="hdr-t">متابعة كورس MCSA 2019 — م. عبير حسني</div>
+      <div class="hdr-s">Windows Server 2019 · 190 فيديو · قائمة عناوين الكورس الحقيقية</div>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="stat-n" id="s-done">0</div><div class="stat-l">مكتمل</div></div>
+    <div class="stat"><div class="stat-n" id="s-left">190</div><div class="stat-l">متبقي</div></div>
+    <div class="stat"><div class="stat-n" id="s-pct">0%</div><div class="stat-l">نسبة الإتمام</div></div>
+    <div class="stat"><div class="stat-n">190</div><div class="stat-l">إجمالي الفيديوهات</div></div>
+  </div>
+  <div class="prog-row"><span>التقدم الكلي</span><span id="pct-lbl">0 / 190</span></div>
+  <div class="prog-bg"><div class="prog-fill" id="prog-bar" style="width:0%"></div></div>
+</div>
+
+<div id="sec-wrap"></div>
+</div>
+
+<script>
+const STORE = 'mcsa_abeer_v2';
+let saved = {};
+try{ saved = JSON.parse(localStorage.getItem(STORE)||'{}'); }catch(e){}
+
+// ─── Course data ───────────────────────────────────────────────
+const sections = [
+{id:'s01',color:'teal',ic:'🌐',name:'أساسيات الشبكات',meta:'فيديو 0 – 11 · 12 فيديو',
+videos:[
+ {n:'0', t:'Orientation — مقدمة تعريفية بالكورس'},
+ {n:'1', t:'Introduction — مقدمة ومحتوى الكورس'},
+ {n:'2', t:'Network Topologies — أشكال تصميم الشبكات'},
+ {n:'3', t:'OSI Model — نموذج الـ 7 طبقات'},
+ {n:'4', t:'Application Layer Part 1 — طبقة التطبيقات (1)'},
+ {n:'5', t:'Application Layer Part 2 — طبقة التطبيقات (2)'},
+ {n:'6', t:'Transport Layer — طبقة النقل TCP/UDP'},
+ {n:'7', t:'Network Layer — طبقة الشبكة والـ IP'},
+ {n:'8', t:'Data Link & Physical Layer — طبقتا البيانات والمادية'},
+ {n:'9', t:'IP Addressing & Subnetting — عنونة الشبكات'},
+ {n:'10', t:'IPv6 — نظام العنونة السادس'},
+ {n:'11', t:'Cables — أنواع الكابلات والتوصيلات'},
+]},
+
+{id:'s02',color:'blue',ic:'💿',name:'تثبيت ويندوز سيرفر والإعداد الأولي',meta:'فيديو 12 – 23 · 12 فيديو',
+videos:[
+ {n:'12', t:'Windows Server 2019 Installation — تثبيت السيرفر'},
+ {n:'13', t:'Windows 10 Installation — تثبيت Windows 10 Client'},
+ {n:'14', t:'Windows Core Installation and Configuration — تثبيت وإعداد Server Core'},
+ {n:'15', t:'Active Directory Installation — تثبيت Active Directory (أول Domain Controller)'},
+ {n:'16', t:'Join Domain — إضافة جهاز للدومين'},
+ {n:'17', t:'Offline Join Domain — الانضمام للدومين بدون اتصال'},
+ {n:'18', t:'Create Domain Users — إنشاء مستخدمين في الدومين'},
+ {n:'19', t:'User Automation — إنشاء مستخدمين بـ CSV و PowerShell'},
+ {n:'20', t:'Computer Account — إدارة حسابات الأجهزة'},
+ {n:'21', t:'WinRM and Remote Desktop — الإدارة عن بُعد'},
+ {n:'22', t:'Server Manager and MMC — أدوات إدارة السيرفر'},
+ {n:'23', t:'Windows Admin Center — مركز إدارة ويندوز'},
+]},
+
+{id:'s03',color:'purple',ic:'🏛️',name:'إدارة Active Directory — مستوى متقدم',meta:'فيديو 24 – 32 · 9 فيديوهات',
+videos:[
+ {n:'24', t:'Remotely Administering Windows Server 2019 Core — إدارة Server Core عن بُعد'},
+ {n:'25', t:'Create User Delegation and Custom Management Tool — تفويض الصلاحيات'},
+ {n:'26', t:'Active Directory Partitions and Additional DC — أقسام الـ AD وإضافة DC ثاني'},
+ {n:'27', t:'Operation Master Roles (FSMO) — الأدوار الخمسة'},
+ {n:'28', t:'Demote Domain Controller — تخفيض رتبة الـ DC'},
+ {n:'29', t:'Read-Only Domain Controller (RODC) — الدومين كنترولر للقراءة فقط'},
+ {n:'30', t:'Install from Media (IFM) — تثبيت DC من ميديا'},
+ {n:'31', t:'Domain Controller Upgrade — ترقية الدومين كنترولر'},
+ {n:'32', t:'Install Domain Controller Using Answer File — تثبيت DC بملف إجابات آلي'},
+]},
+
+{id:'s04',color:'amber',ic:'💾',name:'إدارة التخزين والأقراص',meta:'فيديو 33 – 40 · 8 فيديوهات',
+videos:[
+ {n:'33', t:'Disk Management — إدارة الأقراص والـ Partitions'},
+ {n:'34', t:'Storage Space — مساحة التخزين المجمّعة'},
+ {n:'35', t:'Storage Tier — طبقات التخزين (SSD + HDD)'},
+ {n:'36', t:'NTFS Permissions — أذونات NTFS التفصيلية'},
+ {n:'37', t:'Sharing Permissions — أذونات المشاركة على الشبكة'},
+ {n:'38', t:'Map Network Drive and Offline Sharing — ربط درايف الشبكة وإعداد Offline'},
+ {n:'39', t:'Data Deduplication — إزالة البيانات المكررة'},
+ {n:'40', t:'iSCSI — التخزين الشبكي iSCSI Target & Initiator'},
+]},
+
+{id:'s05',color:'teal',ic:'📡',name:'خدمات الشبكة — DHCP و DNS',meta:'فيديو 41 – 45 · 5 فيديوهات',
+videos:[
+ {n:'41', t:'DHCP Server Part 1 — تثبيت وإعداد DHCP'},
+ {n:'42', t:'DHCP Failover Part 2 — التوافر العالي لـ DHCP'},
+ {n:'43', t:'DNS Part 1 — تثبيت وأساسيات DNS'},
+ {n:'44', t:'DNS Part 2 — Zone Types (Forward, Reverse, Stub)'},
+ {n:'45', t:'DNS Part 3 — Records متقدمة و Forwarders'},
+]},
+
+{id:'s06',color:'purple',ic:'🌲',name:'Active Directory متقدم — Forests وTrusts',meta:'فيديو 46 – 50 · 5 فيديوهات',
+videos:[
+ {n:'46', t:'Revision on Active Directory — مراجعة شاملة على الـ AD'},
+ {n:'47', t:'Configuring a New Domain Tree in an Existing Forest — إنشاء شجرة دومين جديدة'},
+ {n:'48', t:'Adding a Child Domain — إضافة Child Domain'},
+ {n:'49', t:'Configuring Trust Relationships — إعداد Trust بين الدومينات'},
+ {n:'50', t:'Active Directory Groups — أنواع المجموعات وأحجامها'},
+]},
+
+{id:'s07',color:'coral',ic:'🛡️',name:'Group Policy — سياسات المجموعة',meta:'فيديو 51 – 62 · 12 فيديو',
+videos:[
+ {n:'51', t:'Group Policy Essentials and Local GPO — أساسيات السياسات'},
+ {n:'52', t:'Group Policy Central Store and Refresh — المتجر المركزي والتحديث'},
+ {n:'53', t:'Group Policy — Software Deployment (نشر البرامج)'},
+ {n:'54', t:'Group Policy — Folder Redirection (تحويل المجلدات)'},
+ {n:'55', t:'Group Policy — Login Scripts, Preferences & Software Restrictions'},
+ {n:'56', t:'Group Policy — Password Policy and Account Lockout'},
+ {n:'57', t:'Group Policy — Audit Policy (سياسة التدقيق والمراجعة)'},
+ {n:'58', t:'Group Policy — Restricted Groups (تقييد المجموعات)'},
+ {n:'59', t:'Group Policy — Security Templates and Filtering'},
+ {n:'60', t:'GPResult and GPUpdate — تشخيص مشاكل السياسات'},
+ {n:'61', t:'WMI Filtering — فلترة السياسات بـ WMI'},
+ {n:'62', t:'Fine-Grained Password Policy — سياسات كلمات مرور مخصصة لكل مجموعة'},
+]},
+
+{id:'s08',color:'blue',ic:'📀',name:'Windows Deployment Services (WDS)',meta:'فيديو 63 – 67 · 5 فيديوهات',
+videos:[
+ {n:'63', t:'Windows Deployment Server (WDS) Part 1 — تثبيت وإعداد WDS'},
+ {n:'64', t:'WDS Part 2 — إعداد Images والبريستيج'},
+ {n:'65', t:'WDS Part 3 — Multicast Deployment'},
+ {n:'66', t:'WDS Part 4 — إعداد Answer File مع WDS'},
+ {n:'67', t:'WDS Part 5 — سيناريوهات متقدمة'},
+]},
+
+{id:'s09',color:'green',ic:'⚡',name:'Hyper-V والتوافر العالي',meta:'فيديو 68 – 72 · 5 فيديوهات',
+videos:[
+ {n:'68', t:'Hyper-V Server — تثبيت وإعداد Hyper-V'},
+ {n:'69', t:'Hyper-V — Virtual Machines & Virtual Switches'},
+ {n:'70', t:'NLB — Network Load Balancing (موازنة الحمل)'},
+ {n:'71', t:'NLB — إعداد Cluster NLB'},
+ {n:'72', t:'Failover Cluster — التوافر العالي للسيرفرات'},
+]},
+
+{id:'s10',color:'amber',ic:'🔄',name:'WSUS — تحديثات ويندوز',meta:'فيديو 73 – 74 · 2 فيديو',
+videos:[
+ {n:'73', t:'WSUS Server — Windows Server Update Services'},
+ {n:'74', t:'WSUS Using SSL — تأمين WSUS بشهادة SSL'},
+]},
+
+{id:'s11',color:'coral',ic:'📊',name:'FSRM والتحكم في الوصول',meta:'فيديو 75 – 81 · 7 فيديوهات',
+videos:[
+ {n:'75', t:'FSRM — File Server Resource Manager Overview'},
+ {n:'76', t:'FSRM Part 1 — Quota (حصص التخزين)'},
+ {n:'77', t:'FSRM Part 2 — File Screening (تصفية الملفات)'},
+ {n:'78', t:'FSRM Part 3 — Reports وتقارير التخزين'},
+ {n:'79', t:'Dynamic Access Control (DAC) — التحكم الديناميكي في الوصول'},
+ {n:'80', t:'DAC — File Classification Infrastructure'},
+ {n:'81', t:'Access Denied Assistance & File Management Tasks'},
+]},
+
+{id:'s12',color:'teal',ic:'🗂️',name:'خدمات الملفات والطباعة',meta:'فيديو 82 – 85 · 4 فيديوهات',
+videos:[
+ {n:'82', t:'Print Servers — إعداد سيرفر الطباعة وإدارة الطابعات'},
+ {n:'83', t:'DFS Namespace — Distributed File System Namespace'},
+ {n:'84', t:'DFS Replication — نسخ المجلدات التلقائي'},
+ {n:'85', t:'Work Folders — مجلدات العمل للمستخدمين خارج المكتب'},
+]},
+
+{id:'s13',color:'blue',ic:'🔒',name:'Remote Access و VPN',meta:'فيديو 86 – 95 · 10 فيديوهات',
+videos:[
+ {n:'86', t:'NAT Server — Network Address Translation'},
+ {n:'87', t:'VPN Theory — نظرية الشبكات الخاصة الافتراضية'},
+ {n:'88', t:'Remote Access VPN — إعداد VPN للوصول عن بُعد'},
+ {n:'89', t:'CMAK — Connection Manager Administration Kit'},
+ {n:'90', t:'NPS Server — RADIUS Server للمصادقة'},
+ {n:'91', t:'SSTP VPN — Secure Socket Tunneling Protocol VPN'},
+ {n:'92', t:'Routing using Windows Server 2019 — التوجيه بين الشبكات'},
+ {n:'93', t:'Site to Site VPN — ربط فروع الشركة'},
+ {n:'94', t:'IPAM Server — إدارة عناوين الـ IP مركزياً'},
+ {n:'95', t:'NIC Teaming — تجميع كروت الشبكة'},
+]},
+
+{id:'s14',color:'purple',ic:'🚀',name:'خدمات متقدمة — Direct Access وRDS وAD CS',meta:'فيديو 96 – 135 · 40 فيديو',
+groups:[
+ {lbl:'Direct Access — الوصول المباشر بدون VPN', vids:[
+  {n:'96', t:'Direct Access — مقدمة وأساسيات'},
+  {n:'97', t:'Direct Access Part 2 — إعداد الـ Infrastructure'},
+  {n:'98', t:'Direct Access Part 3 — إعداد الـ Clients'},
+  {n:'99', t:'Direct Access Part 4 — Troubleshooting'},
+ ]},
+ {lbl:'Remote Desktop Services (RDS)', vids:[
+  {n:'100', t:'RDS Overview — نظرة عامة على خدمات سطح المكتب البعيد'},
+  {n:'101', t:'RDS — Remote Desktop Session Host (RDSH)'},
+  {n:'102', t:'RDS — Remote Desktop Web Access (RDWA)'},
+  {n:'103', t:'RDS — RemoteApp وتطبيقات سطح المكتب البعيد'},
+  {n:'104', t:'RDS — Remote Desktop Gateway (RD Gateway)'},
+  {n:'105', t:'RDS — Remote Desktop Licensing'},
+ ]},
+ {lbl:'Active Directory Certificate Services (AD CS)', vids:[
+  {n:'106', t:'AD CS — مقدمة في شهادات PKI والمراكز الموثوقة'},
+  {n:'107', t:'AD CS — Certificate Authority (CA) تثبيت وإعداد'},
+  {n:'108', t:'AD CS — إصدار وإدارة الشهادات'},
+  {n:'109', t:'AD CS — Web Enrollment و Auto-Enrollment'},
+  {n:'110', t:'AD CS — Certificate Revocation وـ CRL'},
+ ]},
+ {lbl:'Shadow Copy والنسخ الاحتياطي', vids:[
+  {n:'111', t:'Shadow Copy — النسخ الاحتياطية اللحظية للملفات'},
+  {n:'112', t:'Windows Server Backup — التخزين الاحتياطي الكامل'},
+  {n:'113', t:'Windows Server Backup — Disaster Recovery'},
+  {n:'114', t:'System State Backup — النسخ الاحتياطي لحالة النظام'},
+  {n:'115', t:'Bare Metal Recovery — الاسترجاع الكامل من الصفر'},
+ ]},
+ {lbl:'IIS Web Server', vids:[
+  {n:'116', t:'IIS — Internet Information Services Installation'},
+  {n:'117', t:'IIS — إنشاء وإدارة المواقع'},
+  {n:'118', t:'IIS — SSL Certificate وتأمين المواقع'},
+ ]},
+ {lbl:'AD Sites و Replication', vids:[
+  {n:'119', t:'AD Sites — مواقع Active Directory وإعدادها'},
+  {n:'120', t:'AD Sites — Site Links والتزامن بين الفروع'},
+  {n:'121', t:'AD Replication Troubleshooting'},
+ ]},
+ {lbl:'Branch Cache', vids:[
+  {n:'122', t:'Branch Cache — تخزين البيانات مؤقتاً في الفروع'},
+  {n:'123', t:'Branch Cache — Hosted Cache Mode'},
+ ]},
+ {lbl:'مواضيع متكاملة (96-135)', vids:[
+  {n:'124', t:'فيديو متاح في الكورس'},
+  {n:'125', t:'فيديو متاح في الكورس'},
+  {n:'126', t:'فيديو متاح في الكورس'},
+  {n:'127', t:'فيديو متاح في الكورس'},
+  {n:'128', t:'فيديو متاح في الكورس'},
+  {n:'129', t:'فيديو متاح في الكورس'},
+  {n:'130', t:'فيديو متاح في الكورس'},
+  {n:'131', t:'فيديو متاح في الكورس'},
+  {n:'132', t:'فيديو متاح في الكورس'},
+  {n:'133', t:'فيديو متاح في الكورس'},
+  {n:'134', t:'فيديو متاح في الكورس'},
+  {n:'135', t:'فيديو متاح في الكورس'},
+ ]},
+]},
+
+{id:'s15',color:'green',ic:'⚙️',name:'PowerShell والأتمتة',meta:'فيديو 136 – 165 · 30 فيديو',
+groups:[
+ {lbl:'PowerShell للمسؤولين', vids:[
+  {n:'136', t:'PowerShell Basics — الأوامر الأساسية للمسؤولين'},
+  {n:'137', t:'PowerShell — إدارة Active Directory بالسكريبتات'},
+  {n:'138', t:'PowerShell — إدارة DNS وDHCP'},
+  {n:'139', t:'PowerShell — إدارة الملفات والصلاحيات'},
+  {n:'140', t:'PowerShell — إدارة Group Policy'},
+  {n:'141', t:'PowerShell — Remote Management وPSSession'},
+  {n:'142', t:'PowerShell — Scheduled Tasks والجدولة'},
+  {n:'143', t:'PowerShell — كتابة سكريبتات احترافية'},
+ ]},
+ {lbl:'مواضيع متكاملة (136-165)', vids:[
+  {n:'144', t:'فيديو متاح في الكورس'},
+  {n:'145', t:'فيديو متاح في الكورس'},
+  {n:'146', t:'فيديو متاح في الكورس'},
+  {n:'147', t:'فيديو متاح في الكورس'},
+  {n:'148', t:'فيديو متاح في الكورس'},
+  {n:'149', t:'فيديو متاح في الكورس'},
+  {n:'150', t:'فيديو متاح في الكورس'},
+  {n:'151', t:'فيديو متاح في الكورس'},
+  {n:'152', t:'فيديو متاح في الكورس'},
+  {n:'153', t:'فيديو متاح في الكورس'},
+  {n:'154', t:'فيديو متاح في الكورس'},
+  {n:'155', t:'فيديو متاح في الكورس'},
+  {n:'156', t:'فيديو متاح في الكورس'},
+  {n:'157', t:'فيديو متاح في الكورس'},
+  {n:'158', t:'فيديو متاح في الكورس'},
+  {n:'159', t:'فيديو متاح في الكورس'},
+  {n:'160', t:'فيديو متاح في الكورس'},
+  {n:'161', t:'فيديو متاح في الكورس'},
+  {n:'162', t:'فيديو متاح في الكورس'},
+  {n:'163', t:'فيديو متاح في الكورس'},
+  {n:'164', t:'فيديو متاح في الكورس'},
+  {n:'165', t:'فيديو متاح في الكورس'},
+ ]},
+]},
+
+{id:'s16',color:'pink',ic:'🏆',name:'مراجعة شاملة ومشاريع عملية',meta:'فيديو 166 – 190 · 25 فيديو',
+groups:[
+ {lbl:'مراجعة نهائية ومشاريع', vids:[
+  {n:'166', t:'فيديو متاح في الكورس'},
+  {n:'167', t:'فيديو متاح في الكورس'},
+  {n:'168', t:'فيديو متاح في الكورس'},
+  {n:'169', t:'فيديو متاح في الكورس'},
+  {n:'170', t:'فيديو متاح في الكورس'},
+  {n:'171', t:'فيديو متاح في الكورس'},
+  {n:'172', t:'فيديو متاح في الكورس'},
+  {n:'173', t:'فيديو متاح في الكورس'},
+  {n:'174', t:'فيديو متاح في الكورس'},
+  {n:'175', t:'فيديو متاح في الكورس'},
+  {n:'176', t:'فيديو متاح في الكورس'},
+  {n:'177', t:'فيديو متاح في الكورس'},
+  {n:'178', t:'فيديو متاح في الكورس'},
+  {n:'179', t:'فيديو متاح في الكورس'},
+  {n:'180', t:'فيديو متاح في الكورس'},
+  {n:'181', t:'فيديو متاح في الكورس'},
+  {n:'182', t:'فيديو متاح في الكورس'},
+  {n:'183', t:'فيديو متاح في الكورس'},
+  {n:'184', t:'فيديو متاح في الكورس'},
+  {n:'185', t:'فيديو متاح في الكورس'},
+  {n:'186', t:'فيديو متاح في الكورس'},
+  {n:'187', t:'فيديو متاح في الكورس'},
+  {n:'188', t:'فيديو متاح في الكورس'},
+  {n:'189', t:'فيديو متاح في الكورس'},
+  {n:'190', t:'فيديو متاح في الكورس'},
+ ]},
+]},
+];
+
+// ─── Build UI ────────────────────────────────────────────────
+const wrap = document.getElementById('sec-wrap');
+let allKeys = [];
+
+sections.forEach(sec => {
+  const div = document.createElement('div');
+  div.className = `sec c-${sec.color}`;
+  div.id = sec.id;
+
+  // header
+  const hdr = document.createElement('div');
+  hdr.className = 'sec-hdr';
+  hdr.innerHTML = `
+    <div class="sec-ic">${sec.ic}</div>
+    <div class="sec-info">
+      <div class="sec-name">${sec.name}</div>
+      <div class="sec-meta">${sec.meta}</div>
+    </div>
+    <div class="sec-prog"><div class="sec-prog-fill" id="spf-${sec.id}"></div></div>
+    <span class="sec-pct" id="spct-${sec.id}">0%</span>
+    <span class="arr">▾</span>`;
+  hdr.onclick = () => div.classList.toggle('collapsed');
+  div.appendChild(hdr);
+
+  // body
+  const body = document.createElement('div');
+  body.className = 'sec-body';
+  const vids = document.createElement('div');
+  vids.className = 'vids';
+
+  function addVideo(v) {
+    const key = `v_${v.n}`;
+    allKeys.push(key);
+    const row = document.createElement('div');
+    row.className = 'vid' + (saved[key] ? ' done' : '');
+    row.id = `row-${key}`;
+    const cb = document.createElement('input');
+    cb.type = 'checkbox';
+    cb.id = key;
+    cb.checked = !!saved[key];
+    cb.onchange = () => {
+      saved[key] = cb.checked;
+      row.classList.toggle('done', cb.checked);
+      save(); updateAll();
+    };
+    const num = document.createElement('span');
+    num.className = 'vid-num';
+    num.textContent = v.n;
+    const lbl = document.createElement('label');
+    lbl.htmlFor = key;
+    lbl.textContent = v.t;
+    row.appendChild(cb); row.appendChild(num); row.appendChild(lbl);
+    vids.appendChild(row);
+  }
+
+  if (sec.videos) {
+    sec.videos.forEach(v => addVideo(v));
+  }
+  if (sec.groups) {
+    sec.groups.forEach(g => {
+      const gl = document.createElement('div');
+      gl.className = 'grp-lbl';
+      gl.textContent = g.lbl;
+      vids.appendChild(gl);
+      g.vids.forEach(v => addVideo(v));
+    });
+  }
+
+  body.appendChild(vids);
+  div.appendChild(body);
+  wrap.appendChild(div);
+});
+
+// ─── Logic ───────────────────────────────────────────────────
+function updateAll() {
+  const total = allKeys.length;
+  const done = allKeys.filter(k => saved[k]).length;
+  const pct = total ? Math.round(done/total*100) : 0;
+  document.getElementById('prog-bar').style.width = pct+'%';
+  document.getElementById('pct-lbl').textContent = done+' / '+total;
+  document.getElementById('s-done').textContent = done;
+  document.getElementById('s-left').textContent = total - done;
+  document.getElementById('s-pct').textContent = pct+'%';
+
+  sections.forEach(sec => {
+    const skeys = allKeys.filter(k => {
+      const n = parseInt(k.split('_')[1]);
+      // match keys belonging to this section
+      const allV = sec.videos ? sec.videos.map(v=>`v_${v.n}`) :
+                   sec.groups ? sec.groups.flatMap(g=>g.vids.map(v=>`v_${v.n}`)) : [];
+      return allV.includes(k);
+    });
+    const sd = skeys.filter(k=>saved[k]).length;
+    const sp = skeys.length ? Math.round(sd/skeys.length*100) : 0;
+    const pf = document.getElementById('spf-'+sec.id);
+    const pc = document.getElementById('spct-'+sec.id);
+    if(pf) pf.style.width = sp+'%';
+    if(pc) pc.textContent = sp+'%';
+  });
+}
+
+function save() {
+  try{ localStorage.setItem(STORE, JSON.stringify(saved)); }catch(e){}
+}
+
+updateAll();
+</script>
+</body>
+</html>
